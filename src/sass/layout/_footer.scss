@@ -1,0 +1,118 @@
+@use "../helpers/colors" as *;
+@use "../helpers/breakpoints" as *;
+@use "../base/typography" as *;
+@use "../components/content" as *;
+
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #1C1C1C;
+  padding: 26px;
+
+  background-image: url(../../assets/img/lines.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-inline:auto;
+
+  flex-wrap: wrap;
+    gap: 30px;
+
+  @media screen and (min-width:768px) {
+    padding: 26px 10.6vw;
+    justify-content: space-between;
+    background-size: 80vw; 
+    
+  }
+ 
+  &_logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 50%;
+
+    @media screen and (min-width:768px) {
+      max-width: calc(100vw / 6);
+    }
+
+    &_single{
+      width: 50%;
+      height: auto;
+      @media screen and (min-width:768px) {
+        width: 80%;
+      }
+    }
+
+    &_infos{
+      @include text(18px);
+      color: $white;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+  }
+
+
+  &_nav {
+    flex: 1 1 50%;
+    @media screen and (min-width:768px) {
+      max-width: calc(100vw / 6);
+    }
+    &_list {
+        
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    animation: opacity 0.25s ease-in-out;
+    
+
+      &_item {
+        width: 100%;
+        &_link {
+          @include text(18px);
+          color: $white;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          @media screen and (min-width:768px) {
+            justify-content: flex-start;
+          
+          }
+
+         
+        }
+        &:last-of-type &_link{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &_copyright{
+    flex: 1 1 100%;
+
+    &_infos{
+      @include text(16px);
+      color: $white;
+      margin-bottom: 12px;
+      text-align: center;
+      width: initial;
+    }
+
+    &_nav{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      &_item{
+        @include text(16px);
+        color: $white;
+        text-align: center;
+        width: initial;
+        text-decoration: underline;
+      }
+    }
+  }
+}

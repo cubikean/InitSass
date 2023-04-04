@@ -1,0 +1,48 @@
+@use '../helpers/colors'as *;
+@use '../helpers/breakpoints' as *;
+@use '../base/typography' as *;
+
+
+@mixin title($size){
+    &::before{
+        content: attr(data-letter);
+        font-size: 150px;
+        color: rgba($color: $yellow, $alpha: .6);
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+        @media screen and (min-width:768px) {
+            left: -40px;
+            font-size: 200px;
+        }    
+    }
+
+    font-size: $size;
+    font-family: $Bold;
+    line-height: 1.2;
+    color: $black;
+    width: fit-content;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+@mixin subtitle ($size){
+    font-size: $size;
+    font-family: $Bold;
+    line-height: 1.2;
+    color: $black;
+    width: fit-content;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+@mixin text($size){
+    font-size: $size;
+    font-family: $Regular;
+    line-height: 1.2;
+    color: $black;
+    width: fit-content;
+    margin-bottom: 25px;
+}
