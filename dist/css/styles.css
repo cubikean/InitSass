@@ -1,0 +1,419 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/******** Mes réglages habituels **********/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+a {
+  display: inline-flex;
+  text-decoration: none;
+  color: initial;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Gilroy-Light";
+  src: url("../../assets/fonts/Gilroy-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Gilroy-ExtraBold";
+  src: url("../../assets/fonts/Gilroy-ExtraBold.woff2") format("woff2");
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.main-menu {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  top: 0;
+  width: 100vw;
+  z-index: 99;
+}
+.main-menu::before {
+  content: "";
+  background-color: #f3dc94;
+  z-index: -1;
+  border-radius: 70px;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  transition: all ease-in-out 0.3s;
+}
+@media screen and (min-width: 768px) {
+  .main-menu {
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #000000;
+    padding: 14px;
+    min-height: 70px;
+  }
+  .main-menu::before {
+    display: none;
+  }
+}
+.main-menu--active {
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.main-menu--active::before {
+  content: "";
+  background-color: #f3dc94;
+  z-index: -1;
+  border-radius: 0 0 0 100vw;
+  height: 110vh;
+  width: 130vh;
+  position: absolute;
+  top: -30px;
+  right: -10px;
+}
+.main-menu_logo {
+  position: absolute;
+  top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_logo {
+    position: absolute;
+    padding-right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.main-menu_logo_single {
+  max-width: 140px;
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_logo_single {
+    max-width: 120px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-menu_logo .white {
+    display: none;
+  }
+}
+.main-menu_logo .dark {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .main-menu_logo .dark {
+    display: block;
+    max-width: 120px;
+  }
+}
+.main-menu_list {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    animation: opacity 0.25s ease-in-out;
+    gap: 20px;
+    width: 100%;
+  }
+}
+.main-menu_list--active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  gap: 30px;
+  animation: opacity 0.25s ease-in-out;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_list_item {
+    width: 19vw;
+    text-align: center;
+  }
+}
+.main-menu_list_item_link {
+  font-size: 32px;
+  font-family: "Gilroy-Light";
+  line-height: 1.2;
+  color: #000000;
+  width: fit-content;
+  margin-bottom: 25px;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_list_item_link {
+    font-size: 20px;
+    font-family: "Gilroy-Light";
+    line-height: 1.2;
+    color: #000000;
+    width: fit-content;
+    margin-bottom: 25px;
+    margin-bottom: 0;
+    color: #FFFFFF;
+    position: relative;
+  }
+  .main-menu_list_item_link::before {
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+  }
+  .main-menu_list_item_link:hover::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: -5px;
+    left: 0%;
+  }
+}
+.main-menu_toggler {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: transparent;
+  flex-direction: column;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  width: 36px;
+  gap: 4px;
+}
+@media screen and (min-width: 768px) {
+  .main-menu_toggler {
+    display: none;
+  }
+}
+.main-menu_toggler_line {
+  height: 2px;
+  border-radius: 2px;
+  background: #E7BA29;
+  transition: all 0.3s;
+}
+.main-menu_toggler_line:nth-child(1) {
+  width: 100%;
+}
+.main-menu_toggler_line:nth-child(2) {
+  width: 80%;
+}
+.main-menu_toggler_line:nth-child(3) {
+  width: 60%;
+}
+
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #1C1C1C;
+  padding: 26px;
+  background-image: url(../../assets/img/lines.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-inline: auto;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+@media screen and (min-width: 768px) {
+  .main-footer {
+    padding: 26px 10.6vw;
+    justify-content: space-between;
+    background-size: 80vw;
+  }
+}
+.main-footer_logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 1 50%;
+}
+@media screen and (min-width: 768px) {
+  .main-footer_logo {
+    max-width: 16.6666666667vw;
+  }
+}
+.main-footer_logo_single {
+  width: 50%;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .main-footer_logo_single {
+    width: 80%;
+  }
+}
+.main-footer_logo_infos {
+  font-size: 18px;
+  font-family: "Gilroy-Light";
+  line-height: 1.2;
+  color: #000000;
+  width: fit-content;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+  margin-top: 20px;
+  text-align: center;
+}
+.main-footer_nav {
+  flex: 1 1 50%;
+}
+@media screen and (min-width: 768px) {
+  .main-footer_nav {
+    max-width: 16.6666666667vw;
+  }
+}
+.main-footer_nav_list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  animation: opacity 0.25s ease-in-out;
+}
+.main-footer_nav_list_item {
+  width: 100%;
+}
+.main-footer_nav_list_item_link {
+  font-size: 18px;
+  font-family: "Gilroy-Light";
+  line-height: 1.2;
+  color: #000000;
+  width: fit-content;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .main-footer_nav_list_item_link {
+    justify-content: flex-start;
+  }
+}
+.main-footer_nav_list_item:last-of-type .main-footer_nav_list_item_link {
+  margin-bottom: 0;
+}
+.main-footer_copyright {
+  flex: 1 1 100%;
+}
+.main-footer_copyright_infos {
+  font-size: 16px;
+  font-family: "Gilroy-Light";
+  line-height: 1.2;
+  color: #000000;
+  width: fit-content;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  text-align: center;
+  width: initial;
+}
+.main-footer_copyright_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.main-footer_copyright_nav_item {
+  font-size: 16px;
+  font-family: "Gilroy-Light";
+  line-height: 1.2;
+  color: #000000;
+  width: fit-content;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+  text-align: center;
+  width: initial;
+  text-decoration: underline;
+}
